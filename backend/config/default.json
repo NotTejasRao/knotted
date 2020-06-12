@@ -1,4 +1,4 @@
 {
-    "mongoURI": "mongodb://localhost:27017/knotted",
-    "jwtSecret": "dev-secret"
+  "mongoURI": "mongodb://localhost:27017/knotted",
+  "jwtSecret": "dev-secret"
 }
