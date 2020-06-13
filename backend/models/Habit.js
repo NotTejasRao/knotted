@@ -15,6 +15,7 @@ const HabitSchema = new mongoose.Schema({
     type: String,
   },
   goals: [{ type: mongoose.Schema.Types.ObjectId, ref: "goal" }],
+  goals: [{ type: Date }],
 });
 
 module.exports = Habit = mongoose.model("habit", HabitSchema);
