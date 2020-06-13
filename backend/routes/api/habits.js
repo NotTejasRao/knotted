@@ -137,12 +137,12 @@ router.post("/:id/dates", authenticator, async (req, res) => {
 });
 
 /**
- * @route POST api/habits/goals
+ * @route POST api/habits/:id/goals
  * @description Add goal to habit
  * @access Public
  */
 router.post(
-  "/goals",
+  "/:id/goals",
   [authenticator, [check("goal_id", "Goal is required.").not().isEmpty()]],
   async (req, res) => {
     try {
@@ -184,12 +184,12 @@ router.post(
 );
 
 /**
- * @route DELETE api/habits/goals
+ * @route DELETE api/habits/:id/goals
  * @description Add goal to habit
  * @access Public
  */
 router.delete(
-  "/goals",
+  "/:id/goals",
   [authenticator, [check("goal_id", "Goal is required.").not().isEmpty()]],
   async (req, res) => {
     try {
