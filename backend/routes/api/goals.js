@@ -96,6 +96,11 @@ router.delete("/:id", authenticator, async (req, res) => {
       return res.status(401).json({ errors: [{ msg: "Permission denied." }] });
     }
 
+    goal.habits.foreach(async (habit) => {
+      await habit.goals.remove(goal.id);
+      await habit.save();
+    });
+
     await goal.delete();
 
     return res.status(200).json({ msg: "Goal deleted." });
