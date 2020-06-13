@@ -14,7 +14,7 @@ const HabitSchema = new mongoose.Schema({
   description: {
     type: String,
   },
-  goals: [Goal],
+  goals: [{ type: mongoose.Schema.Types.ObjectId, ref: "goal" }],
 });
 
-module.exports = Habit = mongoose.mongo.model("user", HabitSchema);
+module.exports = Habit = mongoose.model("habit", HabitSchema);
