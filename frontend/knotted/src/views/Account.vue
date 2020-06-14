@@ -1,8 +1,16 @@
 <template>
   <div class="account">
     <Header />
-    <v-btn block color="warning">Logout</v-btn>
-    <v-btn block color="error">Delete Account</v-btn>
+    <v-content>
+      <v-container class="pt-0">
+        <v-row>
+          <v-btn height="50" block color="warning">Logout</v-btn>
+        </v-row>
+        <v-row>
+          <v-btn height="50" block color="error">Delete Account</v-btn>
+        </v-row>
+      </v-container>
+    </v-content>
     <BottomNavbar />
   </div>
 </template>
@@ -15,7 +23,7 @@ export default {
   name: "Account",
   components: {
     Header,
-    BottomNavbar,
-  },
+    BottomNavbar
+  }
 };
 </script>
