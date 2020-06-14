@@ -1,6 +1,6 @@
 <template>
   <div class="header">
-    <v-app-bar dark>
+    <v-app-bar app dark>
       <v-spacer></v-spacer>
       <v-toolbar-title center>Knotted</v-toolbar-title>
       <v-spacer></v-spacer>
