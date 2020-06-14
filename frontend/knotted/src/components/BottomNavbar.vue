@@ -1,6 +1,6 @@
 <template>
   <div class="bottom-navbar">
-    <v-bottom-navigation app v-model="bottomNav">
+    <v-bottom-navigation dark app v-model="bottomNav">
       <v-btn to="goals" value="goals">
         <span>Goals</span>
         <v-icon>mdi-biathlon</v-icon>
@@ -23,9 +23,9 @@
 export default {
   data() {
     return {
-      bottomNav: "recent",
+      bottomNav: "recent"
     };
-  },
+  }
 };
 </script>
 
