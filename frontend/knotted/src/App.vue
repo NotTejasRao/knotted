@@ -1,23 +1,30 @@
 <template>
   <v-app>
-    <v-content>
-      <Knotted />
-    </v-content>
+    <div id="app">
+      <router-view />
+    </div>
   </v-app>
 </template>
 
-<script>
-import Knotted from "./components/Knotted";
+<style lang="scss">
+#app {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+}
 
-export default {
-  name: "App",
+#nav {
+  padding: 30px;
 
-  components: {
-    Knotted,
-  },
+  a {
+    font-weight: bold;
+    color: #2c3e50;
 
-  data: () => ({
-    //
-  }),
-};
-</script>
+    &.router-link-exact-active {
+      color: #42b983;
+    }
+  }
+}
+</style>
