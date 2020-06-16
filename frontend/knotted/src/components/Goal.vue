@@ -3,10 +3,10 @@
     <v-container>
       <v-row>
         <v-col cols="9">
-          <v-card-title>Morning Routine</v-card-title>
+          <v-card-title>{{ name }}</v-card-title>
         </v-col>
         <v-col cols="3">
-          <v-progress-circular :size="64" :value="40">1/30</v-progress-circular>
+          <v-progress-circular :size="64" :value="progress()">{{completed}}/{{total}}</v-progress-circular>
         </v-col>
       </v-row>
     </v-container>
@@ -15,5 +15,19 @@
 
 
 <script>
-export default {};
+export default {
+  data() {
+    return {
+      id: "Loading...",
+      name: "Loading...",
+      completed: 1,
+      total: 1
+    };
+  },
+  methods: {
+    progress() {
+      return (this.completed / this.total) * 100;
+    }
+  }
+};
 </script>
