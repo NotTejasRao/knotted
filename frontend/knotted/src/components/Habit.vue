@@ -3,10 +3,10 @@
     <v-container>
       <v-row>
         <v-col cols="10">
-          <v-card-title>Morning Routine</v-card-title>
+          <v-card-title>{{ name }}</v-card-title>
         </v-col>
         <v-col cols="2">
-          <v-checkbox></v-checkbox>
+          <v-checkbox v-model="completed" @mousedown="clicked"></v-checkbox>
         </v-col>
       </v-row>
     </v-container>
@@ -15,5 +15,18 @@
 
 
 <script>
-export default {};
+export default {
+  data() {
+    return {
+      id: "Loading...",
+      name: "Loading...",
+      completed: false
+    };
+  },
+  methods: {
+    clicked() {
+      this.$emit("clicked", this.id, this.completed);
+    }
+  }
+};
 </script>
