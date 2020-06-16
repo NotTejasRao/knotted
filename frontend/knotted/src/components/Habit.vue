@@ -16,13 +16,7 @@
 
 <script>
 export default {
-  data() {
-    return {
-      id: "Loading...",
-      name: "Loading...",
-      completed: false
-    };
-  },
+  props: ["id", "name", "completed"],
   methods: {
     clicked() {
       this.$emit("clicked", this.id, this.completed);

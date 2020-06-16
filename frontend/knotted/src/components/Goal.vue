@@ -16,14 +16,7 @@
 
 <script>
 export default {
-  data() {
-    return {
-      id: "Loading...",
-      name: "Loading...",
-      completed: 1,
-      total: 1
-    };
-  },
+  props: ["id", "name", "completed", "total"],
   methods: {
     progress() {
       return (this.completed / this.total) * 100;
