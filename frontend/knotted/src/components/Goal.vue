@@ -1,5 +1,5 @@
 <template>
-  <v-card class="ma-4" to="habits">
+  <v-card class="ma-4" @click="clicked()">
     <v-container>
       <v-row>
         <v-col cols="9">
@@ -20,6 +20,9 @@ export default {
   methods: {
     progress() {
       return (this.completed / this.total) * 100;
+    },
+    clicked() {
+      this.$emit("clicked", this.id);
     }
   }
 };
