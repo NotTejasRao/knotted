@@ -115,26 +115,42 @@ router.delete("/:id", authenticator, async (req, res) => {
  * @description Log completion
  * @access Public
  */
-router.post("/:id/dates", authenticator, async (req, res) => {
-  try {
-    habit = await Habit.findById(req.params.id);
+router.post(
+  "/:id/dates",
+  [authenticator, [check("date", "Date is required.").isDate()]],
+  async (req, res) => {
+    try {
+      const errors = validationResult(req);
+      if (!errors.isEmpty()) {
+        return res.status(400).json({ errors: errors.array() });
+      }
 
-    if (!habit) {
-      return res.status(404).json({ errors: [{ msg: "Habit not found." }] });
+      habit = await Habit.findById(req.params.id);
+
+      if (!habit) {
+        return res.status(404).json({ errors: [{ msg: "Habit not found." }] });
+      }
+
+      if (habit.owner.toString() !== req.user.id) {
+        return res
+          .status(401)
+          .json({ errors: [{ msg: "Permission denied." }] });
+      }
+
+      date = JSON.parse(req.body.date);
+      if (req.body.completed) {
+        habit.dates.remove(date);
+      } else {
+        habit.dates.push(date);
+      }
+
+      await habit.save();
+    } catch (err) {
+      console.error(err.message);
+      return res.status(500).send("Server error.");
     }
-
-    if (habit.owner.toString() !== req.user.id) {
-      return res.status(401).json({ errors: [{ msg: "Permission denied." }] });
-    }
-
-    habit.dates.push(new Date(JSON.parse(req.body.date)));
-
-    await habit.save();
-  } catch (err) {
-    console.error(err.message);
-    return res.status(500).send("Server error.");
   }
-});
+);
 
 /**
  * @route POST api/habits/:id/goals
