@@ -10,7 +10,9 @@ Visit https://knotted.app to sign up.
 
 ## Examples
 
-<img align="center" src="https://via.placeholder.com/414x736">
+<p align="center">
+<img src="https://via.placeholder.com/414x736">
+</p>
 
 ## API
 
