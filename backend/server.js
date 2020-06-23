@@ -11,7 +11,6 @@ connectDB();
 app.use(express.json({ extended: false }));
 
 // Configure Routes
-app.use("/api/users", require("./routes/api/users"));
 app.use("/api/auth", require("./routes/api/auth"));
 app.use("/api/goals", require("./routes/api/goals"));
 app.use("/api/habits", require("./routes/api/habits"));
