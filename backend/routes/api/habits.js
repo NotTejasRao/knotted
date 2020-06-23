@@ -49,7 +49,7 @@ router.get("/:id", authenticator, async (req, res) => {
 });
 
 /**
- * @route POST api/habit
+ * @route POST api/habits
  * @description Create habit
  * @access Public
  */
@@ -66,7 +66,6 @@ router.post(
       const habit = new Habit({
         owner: req.user.id,
         name: req.body.name,
-        description: req.body.description,
       });
 
       await habit.save();
@@ -111,7 +110,7 @@ router.delete("/:id", authenticator, async (req, res) => {
 });
 
 /**
- * @route POST api/habits/:id/log
+ * @route POST api/habits/:id/dates
  * @description Log completion
  * @access Public
  */
