@@ -110,7 +110,7 @@ router.delete("/:id", authenticator, async (req, res) => {
 });
 
 /**
- * @route POST api/habits/:id/dates
+ * @route POST api/habits/:id/log
  * @description Log completion
  * @access Public
  */
@@ -200,7 +200,7 @@ router.post(
 
 /**
  * @route DELETE api/habits/:id/goals
- * @description Add goal to habit
+ * @description Delete goal from habit
  * @access Public
  */
 router.delete(

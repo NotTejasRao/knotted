@@ -159,7 +159,7 @@ router.post(
 
 /**
  * @route DELETE api/goals/:id/habits
- * @description Add habit to goal
+ * @description Delete habit from goal
  * @access Public
  */
 router.delete(
