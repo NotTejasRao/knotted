@@ -11,9 +11,6 @@ const HabitSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  description: {
-    type: String,
-  },
   goals: [{ type: mongoose.Schema.Types.ObjectId, ref: "goal" }],
   goals: [{ type: Date }],
 });

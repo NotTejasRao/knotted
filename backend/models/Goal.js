@@ -11,9 +11,6 @@ const GoalSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  description: {
-    type: String,
-  },
   habits: [{ type: mongoose.Schema.Types.ObjectId, ref: "habit" }],
 });
 
