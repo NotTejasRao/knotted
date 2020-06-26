@@ -98,6 +98,16 @@ POST api/habits/:id/goals
     type: String
 ```
 
+
+```
+DELETE api/habits/:id/goals
+  Description: Unlink a goal from a habit
+  Access: Private
+  Body Parameters:
+  goal_id: The ID for the goal to link
+    type: String
+```
+
 ### Goals
 ```
 GET /api/goals
@@ -134,5 +144,16 @@ POST api/goals/:id/habits
   habit_id: The ID for the habit to link
     type: String
 ```
+
+
+```
+DELETE api/goals/:id/habits
+  Description: Unlink a habit from a goal
+  Access: Private
+  Body Parameters:
+  habit_id: The ID for the habit to link
+    type: String
+```
+
 ## Licence
 GPL2
