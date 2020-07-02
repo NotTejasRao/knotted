@@ -6,20 +6,19 @@
           <v-card-title>{{ name }}</v-card-title>
         </v-col>
         <v-col cols="2">
-          <v-checkbox v-model="completed" @mousedown="clicked"></v-checkbox>
+          <v-checkbox v-model="completed" @mousedown="checked"></v-checkbox>
         </v-col>
       </v-row>
     </v-container>
   </v-card>
 </template>
 
-
 <script>
 export default {
   props: ["id", "name", "completed"],
   methods: {
-    clicked() {
-      this.$emit("clicked", this.id, this.completed);
+    checked() {
+      this.$emit("checked", this.id);
     }
   }
 };
