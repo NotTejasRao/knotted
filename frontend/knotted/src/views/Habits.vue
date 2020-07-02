@@ -1,14 +1,16 @@
 <template>
   <div class="habits">
+    <Header />
+
     <v-content>
-      <Header />
+      <CalendarBar />
 
       <Habit
-        v-for="habit in habits"
+        v-for="habit in getHabits"
         :key="habit.id"
         :name="habit.name"
         :completed="habit.completed"
-        @clicked="habitClicked(id)"
+        @checked="postDate(id, getDate)"
       ></Habit>
     </v-content>
 
@@ -21,27 +23,36 @@
 </template>
 
 <script>
+import { mapGetters, mapActions } from "vuex";
 import Header from "@/components/Header.vue";
+import CalendarBar from "@/components/CalendarBar.vue";
 import BottomNavbar from "@/components/BottomNavbar.vue";
 
 import Habit from "@/components/Habit.vue";
 
 export default {
   name: "Habits",
+
+  computed: mapGetters(["getGoals"]),
+  created() {
+    this.fetchHabits();
+  },
   components: {
     Header,
+    CalendarBar,
     BottomNavbar,
-    Habit
-  },
-  data() {
-    return {
-      habits: []
-    };
+    Goal
   },
   methods: {
-    habitClicked(id) {
-      // open goal list
-    }
+    ...mapActions([
+      "fetchHabits",
+      "createHabit",
+      "deleteHabit",
+      "linkGoal",
+      "unlinkGoal",
+      "postDate",
+      "getDate"
+    ])
   }
 };
 </script>
