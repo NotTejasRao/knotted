@@ -116,7 +116,7 @@ router.delete("/:id", authenticator, async (req, res) => {
  */
 router.post(
   "/:id/dates",
-  [authenticator, [check("date", "Date is required.").isDate()]],
+  [authenticator, [check("date", "Date is required.").isISO8601()]],
   async (req, res) => {
     try {
       const errors = validationResult(req);
