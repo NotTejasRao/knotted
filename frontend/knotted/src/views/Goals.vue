@@ -6,7 +6,7 @@
       <CalendarBar />
 
       <Goal
-        v-for="goal in goals"
+        v-for="goal in getGoals"
         :key="goal.id"
         :name="goal.name"
         :completed="goal.completed"
@@ -24,6 +24,7 @@
 </template>
 
 <script>
+import { mapGetters, mapActions } from "vuex";
 import Header from "@/components/Header.vue";
 import CalendarBar from "@/components/CalendarBar.vue";
 import BottomNavbar from "@/components/BottomNavbar.vue";
@@ -32,20 +33,27 @@ import Goal from "@/components/Goal.vue";
 
 export default {
   name: "Goals",
+  computed: mapGetters(["getGoals"]),
+  created() {
+    this.fetchGoals();
+  },
   components: {
     Header,
     CalendarBar,
     BottomNavbar,
     Goal
   },
-  data() {
-    return {
-      goals: []
-    };
-  },
   methods: {
+    ...mapActions([
+      "fetchGoals",
+      "createGoal",
+      "deleteGoal",
+      "linkHabit",
+      "unlinkHabit"
+    ]),
     goalClicked(id) {
       // open habits list
+      console.log(id);
     }
   }
 };
