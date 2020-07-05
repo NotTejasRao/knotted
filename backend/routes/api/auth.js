@@ -18,7 +18,7 @@ const Habit = require("../../models/Habit");
 router.post(
   "/register",
   [
-    check("email", "Please enter a valid email.").not().isEmail(),
+    check("email", "Please enter a valid email.").isEmail(),
     check(
       "password",
       "Please enter a password containing 6 or more characters."
